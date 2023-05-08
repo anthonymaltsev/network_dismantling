@@ -10,7 +10,7 @@ Our study is centered around the use of centrality to develop greedy algorithms 
 
 Code to benchmark each different centrality measure that we studied and the GND algorithm can be found in the `Centrality_Benchmarking.ipynb` notebook. To run each benchmarking function, first define a heuristice dictionary which defines which centrality measures you want to benchmark.
 
-The notebook Experimentation.ipynb is included with code for each centrality measure and helper functions to help visualize each measure. 
+The notebook `Experimentation.ipynb` is included with code for each centrality measure and helper functions to help visualize each measure. 
 
 Results for each algorithm and graph type and size can be found in the 3 different results csvs.
 
