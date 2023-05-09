@@ -42,42 +42,26 @@ def gnd(G, c, verbose=False):
   G = G.copy()
   removed_nodes = set()
   d_max = get_max_degree(G)[1]
-
   ccs = nx.connected_components(G)  
   gcc_node_set = list(max(ccs, key=len))
   gcc_size = len(gcc_node_set)
   gcc = G.subgraph(gcc_node_set).copy()
-  # A_gcc = nx.adjacency_matrix(gcc)
-  # node_weights = [gcc.nodes[v]['node weight'] for v in gcc.nodes]
-  # W_gcc = np.diag(node_weights)
+
   if verbose :
     iter_tracker = 1
 
   while gcc_size > c:
     if verbose: 
       print(f"--- Starting iter {iter_tracker}")
-    # Setup
-    # n = gcc.number_of_nodes()
-    # B = A_gcc @ W_gcc + W_gcc @ A_gcc - A_gcc
-    # D_B = np.diag([sum(B[i]) for i in range(n)])
-    # L_w = D_B - B
-    # d_max = get_max_degree(gcc)[1]
-    # L_tilde = 6 * d_max**2 * np.eye(n) - L_w
 
     v_2_fiedler = nx.fiedler_vector(gcc, weight='edge weight')
     v_2_rounded = np.sign(v_2_fiedler)
     nodes_in_M = [gcc_node_set[i] for i in range(len(v_2_rounded)) if v_2_rounded[i] >= 0]
 
-    # plt.title(f"G at end of iteration: {iter_tracker}")
-    # draw_graph_with_nodes(G, nodes_in_M)
-    # plt.figure()
-
     edges_across_cut = []
     for u, v in gcc.edges:
       if (u in nodes_in_M) != (v in nodes_in_M):
         edges_across_cut.append((u, v))
-
-    #assert len(edges_across_cut) > 0
 
     # compute optimal cut
     G_star = gcc.edge_subgraph(edges_across_cut).copy()
@@ -90,23 +74,13 @@ def gnd(G, c, verbose=False):
     gcc_node_set = list(max(ccs, key=len))
     gcc_size = len(gcc_node_set)
     gcc = G.subgraph(gcc_node_set).copy()
-    # A_gcc = nx.adjacency_matrix(gcc)
-    # node_weights = [gcc.nodes[v]['node weight'] for v in gcc.nodes]
-    # W_gcc = np.diag(node_weights)
     
     if verbose:
-      # plt.title(f"G at end of iteration: {iter_tracker}")
-      # draw_graph_with_nodes(G_original, nodes_in_M)
-      # plt.figure()
       print(f"--- Ending iter {iter_tracker}")
-      # print(nodes_in_M)
       print(edges_across_cut)
       print(len(S))
-      # print(gcc_size)
       iter_tracker += 1
 
-  # # reinsertion greedily:
-  # while gcc_size <= c :
 
 
   return removed_nodes
