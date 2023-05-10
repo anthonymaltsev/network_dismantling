@@ -50,7 +50,6 @@ def nx_wvc_source(G, weight=None) :
 
 def gnd(G, c, verbose=False):
     G = G.copy()
-    print()
     removed_nodes = set()
     d_max = get_max_degree(G)[1]
     ccs = nx.connected_components(G)  
