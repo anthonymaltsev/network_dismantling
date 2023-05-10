@@ -1,6 +1,5 @@
 # Greedy Approaches utilizing Centrality for Node-Weighted Network Dismantling
-
-Anthony Maltsev, Rishi Nath, Alejandro Sanchez Ocegueda
+## Anthony Maltsev, Rishi Nath, Alejandro Sanchez Ocegueda
 
 This repository contains code and results from our research project for CS270 on generalized network dismantling.
 
@@ -8,9 +7,16 @@ Our study is centered around the use of centrality to develop greedy algorithms 
 
 ## Code
 
-Code to benchmark each different centrality measure that we studied and the GND algorithm can be found in the `Centrality_Benchmarking.ipynb` notebook. To run each benchmarking function, first define a heuristics dictionary which specifies which centrality measures you want to benchmark.
+Code to benchmark each different centrality measure that we studied and the GND algorithm can be found in the `dismantling_code` folder.
 
-The notebook `Experimentation.ipynb` is included with code for each centrality measure and helper functions to help visualize each measure. 
+The code relies on the following libraries:
+ * numpy
+ * networkx
+ * scipy
+
+The `Centrality_Benchmarking.ipynb` notebook contains code to benchmark different algorithms. To run each benchmarking function, first define a list of graphs on which you want to benchmark, and define a heuristics dictionary which specifies which centrality measures you want to benchmark.
+
+The notebook `Experimentation.ipynb` is with some starter code to explore and visualize different dismantling algorithms. 
 
 Results for each algorithm and graph type and size can be found in the 3 different results csvs.
 
