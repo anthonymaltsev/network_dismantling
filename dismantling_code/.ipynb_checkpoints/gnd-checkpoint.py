@@ -1,5 +1,6 @@
 import numpy as np
 import networkx as nx
+import scipy
 
 # GND algorithm
 # This file implements the GND algorithm developed by Ren et al in their paper found here:
@@ -59,7 +60,7 @@ def gnd(G, c, verbose=False):
 
     if verbose :
         iter_tracker = 1
-
+        
     while gcc_size > c:
         if verbose: 
             print(f"--- Starting iter {iter_tracker}")
