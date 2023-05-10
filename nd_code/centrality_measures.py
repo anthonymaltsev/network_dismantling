@@ -42,20 +42,22 @@ def greedy_algorithm(heuristic, _G, c=3, timeout=300):
   N = G.number_of_nodes()
   S = []
   cost = 0
+  robustness = 0
 
-  # The connected components are ordered by decreasing size.
+  # Note: the connected components are ordered by decreasing size.
   gcc = max(nx.connected_components(G), key=len)
   size_gcc = len(list(gcc))
 
   while size_gcc > c:
     
-    if (time.time() - start > timeout):
+    if (time.time() - start >= timeout):
       cost = sum(_G.nodes[i]['node weight'] for i in S)
       print("--- TIMEOUT ---")
       print("Algorithm took longer than", timeout, "seconds.")
       print("Intermediate results:")
       print(f"Removed {len(S)} nodes from G.")
       print(f"Cost: {cost}")
+      print("Robustness is undefined.")
       return S, G
 
     node_to_remove = heuristic(gcc, G)
@@ -65,15 +67,17 @@ def greedy_algorithm(heuristic, _G, c=3, timeout=300):
     components = nx.connected_components(G)
     gcc = max(nx.connected_components(G), key=len)
     size_gcc = len(list(gcc))
+    robustness += size_gcc * _G.nodes[node_to_remove]['node weight']
 
-  print(f"Removed {len(S)} nodes from G.")
-  cost = sum(_G.nodes[i]['node weight'] for i in S)
-  print(f"Cost: {cost}")
-  
-  # final_ccs = list(nx.connected_components(G))
-  # average_cc_size = sum(len(G) for G in final_ccs) / len(final_ccs)
-  # print(f"gcc size: {size_gcc}")
-  # print(f"Average cc size: {average_cc_size}")
+  if len(S) == 0:
+    print("Removed no nodes from G.")
+    print("Robustness is undefined.")
+  else: 
+    robustness_score = robustness / _G.number_of_nodes()
+    cost = sum(_G.nodes[i]['node weight'] for i in S)
+    print(f"Removed {len(S)} nodes from G.")
+    print(f"Cost: {cost}")
+    print("Robustness score:", robustness_score)
 
   end = time.time()
   print(f"Time elapsed: {round(end - start, 3)}s")
