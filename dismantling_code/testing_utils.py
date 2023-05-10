@@ -1,7 +1,7 @@
 import networkx as nx
 import random
-from centrality_measures import greedy_algorithm
-from gnd import gnd
+from dismantling_code.centrality_measures import greedy_algorithm
+from dismantling_code.gnd import gnd
 
 ### FUNCTION LIST
 # susc_generator(num_spikes, path_length, p=0)
