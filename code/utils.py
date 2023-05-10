@@ -1,5 +1,11 @@
 import networkx as nx
 
+### FUNCTION LIST
+# draw_graph_with_nodes(G, nodes,node_size=100)
+# draw_graph_ccs(G,node_size=100)
+
+### CODE
+
 def draw_graph_with_nodes(G, nodes,node_size=100) :
   for node in G.nodes:
     if node in nodes:

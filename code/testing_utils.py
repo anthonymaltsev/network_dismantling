@@ -3,6 +3,18 @@ import random
 from centrality_measures import greedy_algorithm
 from gnd import gnd
 
+### FUNCTION LIST
+# susc_generator(num_spikes, path_length, p=0)
+# assign_weights_randomly(G)
+# assign_node_weights_randomly_edge_weights_sum(G)
+# assign_node_weights_randomly(G)
+# test_heuristics(G, heuristics, timeout=300, name="No name provided", c=0.2, gnd=False)
+# draw_results(results)
+# test_gnd(G, timeout=300, name="No name provided", c=3)
+# test_graphs(graphs, g_type, heuristics, timeout=300, c=3, gnd=False)
+
+### CODE
+
 # Generate a sea-urchin-sistine-chapel (SUSC) graph
 def susc_generator(num_spikes, path_length, p=0):
   

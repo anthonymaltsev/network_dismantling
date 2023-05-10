@@ -5,6 +5,16 @@ import networkx as nx
 # This file implements the GND algorithm developed by Ren et al in their paper found here:
 #   https://www.pnas.org/doi/10.1073/pnas.1806108116
 
+### FUNCTION LIST
+# get_second_eigenvector_approx(L_tilde, iters)
+# get_max_degree(G)
+# nx_wvc_source(G, weight=None)
+# gnd(G, c, verbose=False)
+
+
+### CODE
+
+
 def get_second_eigenvector_approx(L_tilde, iters) :
   # draw a v unif random from sphere by drawing each point
   #   as a gaussian and rescaling (as suggested by GND paper)

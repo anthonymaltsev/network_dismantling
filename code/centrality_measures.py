@@ -2,6 +2,38 @@ import networkx as nx
 import numpy as np
 import random
 
+### FUNCTION LIST
+# greedy_algorithm(heuristic, _G, c=0.2)
+# draw_greedy_algorithm(heuristic, G, c=0.2)
+# remove_random_node(gcc, G)
+# lightest_node(gcc, G)
+# weighted_degree_centrality(gcc, G)
+# betweenness_centrality_cd(gcc, G)
+# betweenness_centrality_endpoint_weights(gcc, G)
+# betweenness_centrality_wsp(gcc, G)
+# approximate_betweenness_centrality_cd(gcc, G)
+# approximate_betweenness_centrality_wsp(gcc, G)
+# eigenvector_centrality_cd(gcc, G)
+# power_iteration(G, nodelist, max_iter=100)
+# eigenvector_centrality_weighted_adj(gcc, G)
+# eigenvector_centrality_combined(gcc, G)
+# simplify_and_invert_laplacian(L)
+# approx_current_flow_betweenness(gcc, G, using_cd=False, using_weighted_edges=False, using_weighted_supply=False)
+# cfbc_cd = lambda gcc, G: approx_current_flow_betweenness(gcc, G, using_cd=True)
+# cfbc_wedge = lambda gcc, G: approx_current_flow_betweenness(gcc, G, using_weighted_edges=True)
+# cfbc_wsup = lambda gcc, G: approx_current_flow_betweenness(gcc, G, using_weighted_supply=True)
+# cfbc_combined = lambda gcc, G: approx_current_flow_betweenness(gcc, G, using_cd=True, using_weighted_edges=True, using_weighted_supply=True)
+# laplacian_centrality(gcc, G, CD=False)
+# laplacian_centrality_cd(gcc, G)
+# second_eval_estimate(full_G)
+# modified_laplacian_centrality(gcc, full_G, CD=False)
+# modified_laplacian_centrality_cd(gcc, full_G)
+# load_centrality(gcc, G)
+# communicability_centrality(gcc, G)
+# information_centrality(gcc, G)
+
+### CODE BELOW
+
 def greedy_algorithm(heuristic, _G, c=0.2):
   start = time.time()
 
